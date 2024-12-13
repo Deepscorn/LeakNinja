@@ -1,0 +1,7 @@
+{
+    "name": "com.deepscorn.leakninja",
+    "version": "1.0.0",
+    "unity": "2020.1",
+    "displayName": "LeakNinja",
+    "description": "Automatically finds some leaked unity objects. Useful for self-control"
+}

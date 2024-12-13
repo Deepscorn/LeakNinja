@@ -3,6 +3,8 @@
 Tool for auto-detecting leaked unity objects, use for self control when writing code. Monitor & detection is done in runtime. Results are output in unity log console.
 Note: it checks whether destroyed unity objects (game objects and assets) are garbage collected. Works on regular interval.
 
+!! this tool not find holders. To find holders you need to remember what code your wrote, what changes did to assets (self-control during feature development). Or use additional profiler / write your own.
+
 # Installation
 
 There are ways to install this plugin:

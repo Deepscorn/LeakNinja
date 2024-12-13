@@ -31,6 +31,11 @@ Or you can add it through code:
             Destroy(_leakNinja.gameObject); // if you want to stop LeakNinja, destroy it
         }
 ```
+
+# How to read output
+
+![Example log image](Images/OutputExample.png?raw=true "Example log")
+
 # Tuning
 
 Default LeakNinja behaviour is an expensive full search on each scene load. And comparably fast checking for leaks periodically. So this is trade-off between quality of detection and speed. 

@@ -19,5 +19,5 @@ ExportedObj/
 .idea/
 *.iml
 
-# tests output
+# tests output and other stuff
 .test/

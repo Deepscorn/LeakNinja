@@ -13,6 +13,7 @@ There are ways to install this plugin:
 
 # Usage
 
+!! do not use in editor because objects are cached for inspector, project view, etc. For many leaked object, it's holders will be editor irrelevant stuff.
 !! do not use in production builds because it's cpu expensive and lead to microfreezes.
 
 To use just create gameobject and add LeakNinja component.

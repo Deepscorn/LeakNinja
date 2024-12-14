@@ -36,6 +36,8 @@ Or you can add it through code:
 
 ![Example log image](Images/OutputExample.png?raw=true "Example log")
 
+Note: leaks are being outputed after each check. Sometimes check happen too early leading to false detection. If after second check you do not see leaks log, than this means no leaks (all objects are garbage collected).
+
 # Tuning
 
 Default LeakNinja behaviour is an expensive full search on each scene load. And comparably fast checking for leaks periodically. So this is trade-off between quality of detection and speed. 

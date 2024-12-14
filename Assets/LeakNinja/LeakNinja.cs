@@ -42,23 +42,16 @@ namespace LeakNinja
         public Coroutine CheckCoroutine { get; private set; }
 
         // ReSharper disable once UnusedMethodReturnValue.Global (can be customized through return value)
-        public static LeakNinja Create()
-        {
-            var result = new GameObject(nameof(LeakNinja)).AddComponent<LeakNinja>();
-            DontDestroyOnLoad(result.gameObject);
-            return result;
-        }
+        public static LeakNinja Create() => new GameObject(nameof(LeakNinja)).AddComponent<LeakNinja>();
 
-        private void Awake()
-        {
-            Manual = new ManualLeakNinja();
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.sceneUnloaded += OnSceneUnloaded;
-        }
+        private void Awake() => Manual = new ManualLeakNinja();
 
         private void Start()
         {
             Core.Log.Message("Start");
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+            DontDestroyOnLoad(gameObject);
             PerformAction(DoOnStart, "Start");
             InitPeriodicPart();
         }
@@ -152,14 +145,14 @@ namespace LeakNinja
                 return;
 
             IReadOnlyCollection<string> warnings = null;
-            Core.Log.Scope("Format", () =>
+            //Core.Log.Scope("Format", () =>
             {
                 // splitting to several strings, because there is a limit in GameDebugConsole and unity console
                 const int maxLines = 100;
                 var firstLine = $"Leaks({Manual.LeakedReferences.Count}):";
                 // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
                 warnings = new WatchSummaryFormatter().Format(Manual.LeakedReferences, maxLines, firstLine);
-            });
+            }
             foreach (var warning in warnings)
                 Core.Log.Warning(warning);
         }
